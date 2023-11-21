@@ -1,49 +1,30 @@
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment } from '../reducers/counterReducer';
+import { styles } from '../styles/style';
 
 export const Counter = () => {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
 
   return (
-    <View style={styles.container}>
+    <View style={styles.row}>
       <TouchableOpacity
         style={styles.button}
         onPress={() => dispatch(decrement())}
       >
-        <Text style={styles.buttonText}>-</Text>
+         <Text style={styles.buttonText}>-</Text>
       </TouchableOpacity>
-      <Text style={styles.countText}>{count}</Text>
+      <Text style={styles.text}>{count}</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => dispatch(increment())}
       >
-      <Text style={styles.buttonText}>+</Text>
+         <Text style={styles.buttonText}>+</Text>
+        
       </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  button: {
-    backgroundColor: 'gray',
-    padding: 30,
-    borderRadius: 10,
-    margin: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-  },
-  countText:{
-    fontSize:20
-  }
-});
+
