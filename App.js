@@ -1,23 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
-import { Counter } from './src/components/counter';
+import { styles } from './src/styles/style';
+import Movies from './src/components/Movies';
 
 export default function App() {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Counter />
-      </View>
+      <SafeAreaView style={styles.container}>
+        <Movies/>
+      </SafeAreaView>
     </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
